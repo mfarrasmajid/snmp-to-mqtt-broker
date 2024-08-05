@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// AUTH
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/login', 'AuthController@submit_login');
+Route::get('/logout', 'AuthController@logout')->name('logout');
+
+// DASHBOARD
+Route::get('/', 'MainController@dashboard')->name('dashboard');
